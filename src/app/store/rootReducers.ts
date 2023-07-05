@@ -1,6 +1,6 @@
 import { combineReducers } from '@reduxjs/toolkit'
-import { baseApi } from 'shared/api'
+import { isMobileReducer } from 'shared/reducers'
 
 export const rootReducer = combineReducers({
-  [baseApi.reducerPath]: baseApi.reducer,
+  isMobileReducer,
 })

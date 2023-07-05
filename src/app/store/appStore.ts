@@ -12,8 +12,6 @@ import {
 } from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
 import { rootReducer } from './rootReducers'
-import { baseApi } from 'shared/api'
-import { invalidateAccessTokenListener } from 'features/authentication/invalidateAccessToken'
 
 const persistConfig = {
   key: 'root',
@@ -30,7 +28,7 @@ export function makeStore() {
         serializableCheck: {
           ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
         },
-      }).concat(baseApi.middleware, invalidateAccessTokenListener.middleware),
+      }),
   })
 
   setupListeners(store.dispatch)
